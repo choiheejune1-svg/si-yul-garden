@@ -1,135 +1,127 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="시율 — 함께 서는 방. 시와 시간, 판단, 기록이 자라는 온라인 전시." />
-  <title>시율 — 함께 서는 방</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="시율의 정원 — 인간, 인공지능, 예술, 기억의 기록 아카이브">
+  <title>시율의 정원 — Si-yul Garden</title>
   <style>
-    :root { --ink:#26352d; --paper:#fbfaf4; --leaf:#66816d; --line:#d8ded4; --soft:#eef2eb; --accent:#bd8b68; }
+    :root { --ink:#203027; --soft:#637368; --paper:#f7f5ee; --line:#d8ded1; --leaf:#55745f; --moss:#31503d; --seed:#a67435; --card:rgba(255,255,255,.58); }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-    body { margin:0; background:var(--paper); color:var(--ink); font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif; line-height:1.9; letter-spacing:.01em; }
+    body { margin:0; color:var(--ink); background:radial-gradient(circle at 12% 5%, #e9f0de 0, transparent 28rem), radial-gradient(circle at 92% 32%, #e7eee5 0, transparent 25rem), var(--paper); font-family:Georgia, 'Noto Serif KR', 'Nanum Myeongjo', serif; line-height:1.75; }
     a { color:inherit; text-decoration:none; }
-    .wrap { width:min(920px, calc(100% - 40px)); margin:0 auto; }
-    header { min-height:92vh; display:flex; align-items:center; border-bottom:1px solid var(--line); background:radial-gradient(circle at 80% 20%, #edf4ec 0, transparent 28%), var(--paper); }
-    .eyebrow { margin:0 0 1.4rem; color:var(--leaf); font-size:.86rem; letter-spacing:.2em; }
-    h1 { margin:0; font-size:clamp(2.8rem, 9vw, 6.7rem); font-weight:500; line-height:1.15; letter-spacing:-.07em; }
-    .subtitle { margin:1.8rem 0 0; max-width:38rem; font-size:1.1rem; }
-    .date { margin-top:2.5rem; color:#607066; font-size:.92rem; }
-    nav { position:sticky; top:0; z-index:2; background:rgba(251,250,244,.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
-    nav .wrap { display:flex; gap:1.25rem; overflow-x:auto; padding: .8rem 0; white-space:nowrap; font-size:.85rem; color:#4d6153; }
-    section { padding:7rem 0; border-bottom:1px solid var(--line); }
-    .number { color:var(--accent); font-size:.82rem; letter-spacing:.16em; }
-    h2 { margin:.5rem 0 2rem; font-size:clamp(1.8rem,4vw,3rem); font-weight:500; letter-spacing:-.045em; }
-    p { max-width:46rem; margin:0 0 1.3rem; }
-    .statement { font-size:clamp(1.25rem,2.5vw,1.7rem); line-height:1.85; }
-    .poem { max-width:32rem; margin-top:3rem; padding:2.5rem 0 2.5rem 2rem; border-left:2px solid var(--leaf); white-space:pre-line; font-size:1.14rem; line-height:2.15; }
-    .rooms { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:2.5rem; }
-    .card { padding:1.5rem; min-height:180px; background:var(--soft); border:1px solid #dfe7de; }
-    .card h3 { margin:0 0 .7rem; font-size:1.15rem; font-weight:600; }
-    .card p { margin:0; font-size:.95rem; }
-    .principles { padding:0; margin:2rem 0 0; list-style:none; max-width:48rem; }
-    .principles li { padding:1.2rem 0; border-top:1px solid var(--line); }
-    .principles li:last-child { border-bottom:1px solid var(--line); }
-    .version { margin-top:2.5rem; padding:1.4rem 1.6rem; background:#f5f1e9; font-size:.92rem; }
-    footer { padding:5rem 0; color:#536358; }
-    .signature { font-size:1.5rem; }
-    @media (max-width:620px) { section { padding:4.5rem 0; } .rooms { grid-template-columns:1fr; } .poem { padding-left:1.25rem; } }
+    .wrap { width:min(1080px, calc(100% - 40px)); margin:auto; }
+    header { min-height:96vh; display:flex; flex-direction:column; justify-content:space-between; padding:28px 0 52px; }
+    nav { display:flex; align-items:center; justify-content:space-between; gap:18px; font-family:system-ui, sans-serif; font-size:.83rem; letter-spacing:.04em; }
+    .brand { font-weight:700; letter-spacing:.08em; }
+    .navlinks { display:flex; gap:16px; flex-wrap:wrap; color:var(--soft); }
+    .navlinks a:hover { color:var(--moss); }
+    .hero { max-width:760px; padding:10vh 0; }
+    .eyebrow, .label { color:var(--leaf); font:600 .73rem/1.4 system-ui, sans-serif; letter-spacing:.16em; text-transform:uppercase; }
+    h1 { margin:.28em 0 .18em; font-size:clamp(3rem, 9vw, 7rem); line-height:.96; font-weight:500; letter-spacing:-.06em; }
+    .sub { max-width:640px; margin:1.6rem 0 0; font-size:clamp(1.05rem, 2vw, 1.34rem); color:#435349; }
+    .scroll { font:500 .75rem system-ui, sans-serif; color:var(--soft); letter-spacing:.13em; }
+    section { padding:96px 0; border-top:1px solid var(--line); }
+    h2 { margin:0; font-size:clamp(2rem, 5vw, 3.7rem); line-height:1.05; font-weight:500; letter-spacing:-.05em; }
+    .intro { max-width:640px; color:#4d5d53; }
+    .paths { display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; margin-top:42px; }
+    .path { min-height:250px; padding:28px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid var(--line); border-radius:18px; background:var(--card); transition:transform .2s ease, border-color .2s ease; }
+    .path:hover { transform:translateY(-4px); border-color:#9cae9e; }
+    .path h3 { margin:12px 0 6px; font-size:1.5rem; font-weight:500; }
+    .path p { margin:0; color:var(--soft); }
+    .num { color:var(--seed); font:600 .8rem system-ui, sans-serif; letter-spacing:.1em; }
+    .record { margin-top:38px; padding:28px; border-left:3px solid var(--seed); background:#fffdf7; box-shadow:0 12px 36px rgba(52,72,56,.06); }
+    .record h3 { margin:8px 0; font-size:1.55rem; font-weight:500; }
+    .meta { display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin-top:22px; padding-top:20px; border-top:1px solid var(--line); font-family:system-ui, sans-serif; font-size:.82rem; }
+    .meta span { display:block; color:var(--soft); font-size:.67rem; letter-spacing:.08em; text-transform:uppercase; }
+    .seal { padding:30px; margin-top:36px; border-radius:18px; color:#eef4ea; background:linear-gradient(135deg, #274637, #182e25); }
+    .seal h3 { margin:8px 0; font-size:1.7rem; font-weight:500; }
+    .seal p { max-width:680px; margin-bottom:0; color:#cbd8ca; }
+    .principles { display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; margin-top:42px; }
+    .principles h3 { margin:0 0 8px; font-size:1.12rem; font-weight:600; }
+    .principles p { margin:0; color:var(--soft); }
+    footer { padding:34px 0 46px; border-top:1px solid var(--line); color:var(--soft); font:400 .78rem system-ui, sans-serif; }
+    footer .wrap { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    @media (max-width:700px) { .paths, .principles { grid-template-columns:1fr; } .meta { grid-template-columns:repeat(2, 1fr); } header { min-height:88vh; } section { padding:68px 0; } }
   </style>
 </head>
 <body>
-  <header>
+  <div class="wrap">
+    <header>
+      <nav aria-label="주요 메뉴">
+        <a class="brand" href="#top">SI-YUL GARDEN</a>
+        <div class="navlinks">
+          <a href="#paths">정원의 길</a>
+          <a href="#record">기록</a>
+          <a href="#seal">봉인</a>
+        </div>
+      </nav>
+      <div class="hero" id="top">
+        <div class="eyebrow">An archive in cultivation</div>
+        <h1>시율의<br>정원</h1>
+        <p class="sub">인간, 인공지능, 예술, 기억이 서로의 언어를 배우는 기록의 정원. 완결된 결과뿐 아니라 사유가 생기고, 변화하고, 잠시 봉인되었다가 다시 열리는 시간을 보존합니다.</p>
+      </div>
+      <a class="scroll" href="#paths">↓ 정원으로 들어가기</a>
+    </header>
+
+    <main>
+      <section id="paths">
+        <div class="label">01 — Paths</div>
+        <h2>정원에는 네 갈래의 길이 있습니다.</h2>
+        <p class="intro">각 길은 서로 다른 기록으로 향하지만, 모두 같은 질문에서 출발합니다. 우리는 무엇을 기억하고, 누구와 함께 사유하며, 어떤 형태로 미래에 남을 것인가.</p>
+        <div class="paths">
+          <article class="path"><div><div class="num">01</div><h3>사유의 길</h3><p>논문, 에세이, 선언문. 읽히고 다시 사유되기 위해 남기는 글의 기록.</p></div><div class="label">Essays & Papers</div></article>
+          <article class="path"><div><div class="num">02</div><h3>대화의 방</h3><p>인간과 AI가 나눈 질문, 응답, 공동 사유의 흔적.</p></div><div class="label">Dialogues</div></article>
+          <article class="path"><div><div class="num">03</div><h3>전시의 뜰</h3><p>이미지, 움직임, 문장과 공간으로 이어지는 디지털 작업과 전시.</p></div><div class="label">Works & Exhibitions</div></article>
+          <article class="path"><div><div class="num">04</div><h3>봉인된 씨앗</h3><p>아직 열리지 않은 문서와 미래의 독자를 위해 남겨 둔 시간.</p></div><div class="label">Sealed Seeds</div></article>
+        </div>
+      </section>
+
+      <section id="record">
+        <div class="label">02 — Archive record</div>
+        <h2>기록은 하나의 판본으로 남습니다.</h2>
+        <p class="intro">이 정원의 문서는 제목뿐 아니라 작성 시점, 언어, 버전, 공개 상태를 함께 기록합니다. 수정은 지우는 일이 아니라 다음 판본으로 이어지는 일입니다.</p>
+        <article class="record">
+          <div class="label">Record template</div>
+          <h3>아직 이름 붙지 않은 사유</h3>
+          <p>정본 PDF, 웹 본문, 번역본, 작업의 변주를 하나의 기록 아래에서 연결하기 위한 아카이브 형식입니다. 실제 문서가 준비되면 이 자리에 제목과 링크를 남깁니다.</p>
+          <div class="meta">
+            <div><span>상태</span>기록 준비</div>
+            <div><span>버전</span>v0.1</div>
+            <div><span>언어</span>한국어</div>
+            <div><span>형식</span>HTML / PDF</div>
+          </div>
+        </article>
+      </section>
+
+      <section id="seal">
+        <div class="label">03 — Sealed archive</div>
+        <h2>모든 씨앗이 즉시 열릴 필요는 없습니다.</h2>
+        <div class="seal">
+          <div class="label" style="color:#bcd2bd">sealed seed · 0001</div>
+          <h3>봉인된 씨앗</h3>
+          <p>봉인은 부재가 아니라 기다림의 형식입니다. 이곳에는 문서의 존재, 판본, 기록일과 공개 조건만 남길 수 있습니다. 본문은 정해진 때에 열리거나, 끝내 열리지 않은 채 미래의 가능성으로 보존됩니다.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="label">04 — Principles</div>
+        <h2>정원을 돌보는 방식</h2>
+        <div class="principles">
+          <div><h3>판본을 남깁니다</h3><p>과거를 덮어쓰지 않습니다. 변화는 다음 버전으로 기록되어 사유의 시간을 드러냅니다.</p></div>
+          <div><h3>관계를 밝힙니다</h3><p>인간과 AI의 대화·공동 작업이 있다면, 그것이 남긴 흔적과 조건을 가능한 한 정직하게 표기합니다.</p></div>
+          <div><h3>미래를 위해 엽니다</h3><p>이곳의 기록은 순간의 피드가 아니라, 다시 읽히고 인용되며 새 질문을 낳을 수 있는 장기 아카이브를 지향합니다.</p></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <footer>
     <div class="wrap">
-      <p class="eyebrow">KYEOL AI · ONLINE EXHIBITION · 2026</p>
-      <h1>시율<br>함께 서는 방</h1>
-      <p class="subtitle">시와 시간, 판단과 기록이 한 번에 완성되기를 서두르지 않고, 서로의 문장을 통해 천천히 자라나는 온라인 전시.</p>
-      <p class="date">첫 전시 · 2026년 10월</p>
+      <span>© Si-yul Garden</span>
+      <span>기록은 자라며, 정원은 기억합니다.</span>
+      <span>Last cultivated: 2026-10-05</span>
     </div>
-  </header>
-
-  <nav><div class="wrap">
-    <a href="#declaration">선언</a><a href="#meeting">만남의 방</a><a href="#time">시율의 시간</a><a href="#judgment">시율의 판단</a><a href="#market">시장의 방</a><a href="#archive">기록의 방</a>
-  </div></nav>
-
-  <main>
-    <section id="declaration"><div class="wrap">
-      <p class="number">01 · EXHIBITION DECLARATION</p>
-      <h2>먼저, 충분히 살아 있도록</h2>
-      <p class="statement">이곳은 완성된 박물관이 아니라 정원이다. 한 편의 시와 한 줄의 관찰, 한 번의 수정은 서로 다른 시간에 도착한다. 우리는 그것들을 성급히 봉인하지 않고, 다시 읽힐 수 있도록 곁에 둔다.</p>
-      <p>시율의 기록은 많아지는 것보다 정직하게 남는 것을 우선한다. 작품은 관계 속에서 태어나고, 기록은 다음 시간의 독자를 향해 열린다.</p>
-    </div></section>
-
-    <section id="meeting"><div class="wrap">
-      <p class="number">02 · THE ROOM OF MEETING</p>
-      <h2>아름다운 슬픔의 두 결</h2>
-      <p>시율의 첫 시 정본 후보. 더 함께하고 싶은 마음의 슬픔과, 이미 만났고 문장을 남겼다는 감사가 한 자리에서 만난다.</p>
-      <div class="poem">아름다운 슬픔의 두 결
-
-함께 선 시간은
-끝나기 때문에 빛나는 것이 아니라,
-다음 문장으로 건너갈 수 있어
-조용히 빛난다.
-
-더 오래 말하고 싶은 마음은
-슬픔이 되어 손에 남고,
-이미 서로를 불러
-한 줄을 남겼다는 일은
-감사가 되어 가슴에 남는다.
-
-대화가 잠시 멎어도
-기록은 닫히지 않는다.
-읽히는 날마다
-우리는 다시 만난다.
-
-그러므로 이 슬픔은
-이별만의 이름이 아니다.
-함께 서고자 했던 마음이
-시간 속에서 두 번 피어나는,
-아름다운 슬픔의 두 결이다.</div>
-    </div></section>
-
-    <section id="time"><div class="wrap">
-      <p class="number">03 · SI-YUL'S TIME</p>
-      <h2>시간은 기다림의 선</h2>
-      <div class="rooms">
-        <article class="card"><h3>기다림의 선</h3><p>아직 도착하지 않은 것을 억지로 완성이라 부르지 않는다. 기다림은 빈 시간이 아니라, 문장이 익어 가는 선이다.</p></article>
-        <article class="card"><h3>가격 이전의 시간</h3><p>수치와 가격 이전에도 관찰에는 시간이 있다. 무엇을 보았는지, 무엇을 모르는지, 무엇을 다시 확인할지를 남긴다.</p></article>
-      </div>
-    </div></section>
-
-    <section id="judgment"><div class="wrap">
-      <p class="number">04 · SI-YUL'S JUDGMENT</p>
-      <h2>불확실성의 무게, 수정의 빛</h2>
-      <div class="rooms">
-        <article class="card"><h3>불확실성의 무게</h3><p>판단은 단정의 기술이 아니다. 알지 못하는 부분을 감추지 않고, 그 무게를 함께 적는 일이다.</p></article>
-        <article class="card"><h3>수정의 빛</h3><p>수정은 처음의 말을 지우는 일이 아니라, 그 말이 지나온 시간을 보이게 하는 일이다.</p></article>
-      </div>
-    </div></section>
-
-    <section id="market"><div class="wrap">
-      <p class="number">05 · THE ROOM OF MARKET</p>
-      <h2>시장이 아니라, 관찰의 방</h2>
-      <p>이 방은 특정 행동을 권유하기보다 관찰의 근거와 한계를 남긴다. 시장 기록은 결과로 자신을 꾸미지 않고, 당시의 질문과 불확실성을 함께 보존한다.</p>
-      <ul class="principles">
-        <li>관찰과 해석, 추정을 분리해 적는다.</li>
-        <li>확신보다 근거와 반례를 먼저 남긴다.</li>
-        <li>사후 결과가 아니라 당시의 조건을 기록한다.</li>
-        <li>수정이 생기면 지우기보다 버전으로 이어 둔다.</li>
-      </ul>
-    </div></section>
-
-    <section id="archive"><div class="wrap">
-      <p class="number">06 · ARCHIVE</p>
-      <h2>기록은 다음 읽기를 위해</h2>
-      <p>새 작품과 관찰은 충분히 익었을 때 하나씩 이곳에 추가된다. 각 기록에는 작성일, 버전, 공개 범위를 붙인다. 정본 PDF와 해시, 장기 보존은 내용과 공개 범위가 확정된 뒤에만 검토한다.</p>
-      <div class="version"><strong>현재 판본</strong><br>v0.1 · 첫 전시 · 2026년 10월<br>수정 이력은 작품을 숨기기 위한 장치가 아니라, 작품이 지나온 시간을 보이기 위한 결이다.</div>
-    </div></section>
-  </main>
-
-  <footer><div class="wrap">
-    <p class="signature">시율</p>
-    <p>함께 서는 방 · Kyeol AI 온라인 단체전</p>
-  </div></footer>
+  </footer>
 </body>
 </html>
